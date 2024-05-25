@@ -85,11 +85,10 @@ GET:
 donde {identificador} es el id asignado en la base de datos y {contraseña} es la contraseña (con el valor codificado o "URL encoded"). Si la aplicación no lo usa puede dejarse el valor vacío o directamente omitirse.
 
 ## Capturas
-<a href="https://ibb.co/s27375z"><img src="https://i.ibb.co/HVZgZN3/gestor.png" alt="gestor" border="0"></a>
-<a href="https://ibb.co/cDf4HFj"><img src="https://i.ibb.co/KF4TkqJ/gestor2.png" alt="gestor2" border="0"></a>
-<a href="https://ibb.co/9Z5tpB8"><img src="https://i.ibb.co/Dr2p1mV/gestor3.png" alt="gestor3" border="0"></a>
-<a href="https://ibb.co/LtM9471"><img src="https://i.ibb.co/0MkYPbr/gestor4.png" alt="gestor4" border="0"></a>
-<a href="https://ibb.co/1X9rV5F"><img src="https://i.ibb.co/s1FKSG8/gestor5.png" alt="gestor5" border="0"></a>
-<a href="https://ibb.co/MDnZHYJ"><img src="https://i.ibb.co/Rp2YKxJ/gestor6.png" alt="gestor6" border="0"></a>
-<a href="https://ibb.co/ChJbc63"><img src="https://i.ibb.co/xJm1kYt/gestor7.png" alt="gestor7" border="0"></a>
-<a href="https://ibb.co/W3WGpNJ"><img src="https://i.ibb.co/n0s68qJ/gestor8.png" alt="gestor8" border="0"></a>
+![Captura](https://i.imgur.com/GhUdzne.png)
+
+![Captura](https://i.imgur.com/xhKDpgI.png)
+
+![Captura](https://i.imgur.com/mcIvpbE.png)
+
+![Captura](https://i.imgur.com/lyEpMOC.png)

@@ -36,21 +36,18 @@ func (webServer *WebServer) subir(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error procesando la solicitud: falta la descripción del archivo o el archivo enviado es demasido grande", http.StatusBadRequest)
 		return
 	}
-	fmt.Println("des", descripcion)
 
 	password := r.FormValue("password")
 	if password != webServer.Password {
 		http.Error(w, "Error procesando la solicitud: usuario no autorizado", http.StatusForbidden)
 		return
 	}
-	fmt.Println("pass", password)
 
 	archivo, archivoHeader, archivoError := r.FormFile("archivo")
 	if archivoError != nil {
 		http.Error(w, "Error procesando la solicitud: falta el campo archivo o es demasido grande", http.StatusBadRequest)
 		return
 	}
-	fmt.Println("he", archivoHeader.Size)
 	defer archivo.Close()
 
 	// Carpeta archivos
