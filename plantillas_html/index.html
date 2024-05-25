@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal | Gestor de archivos por descripción</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        main {
+            width: 800px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        details {
+            margin: 20px auto;
+            background: #d2d2d2;
+        }
+
+        details summary {
+            cursor: pointer;
+            padding: 15px 6px;
+            font-size: large;
+            font-weight: 900;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+
+        .contenido {
+            padding: 15px 20px;
+        }
+
+        textarea {
+            display: block;
+            width: 600px;
+            max-width: 100%;
+            min-height: 100px;
+            margin: 15px 0 0 0;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 15px 0 0 0;
+        }
+
+        button {
+            display: block;
+            font-size: large;
+            padding: 12px 8px;
+            border-radius: 6px;
+            background: teal;
+            color: white;
+            border: none;
+        }
+
+        #busqueda {
+            display: block;
+            margin: 15px 0 15px 0;
+            width: 600px;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #333;
+                color: white;
+            }
+
+            details summary {
+                background: #898989;
+                color: white;
+            }
+
+            details {
+                background: transparent;
+            }
+        }
+
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gestor de Archivos Por Descripción</h1>
+    <main>
+        {{if .UsoPassword}}
+            <details>
+                <summary>Password</summary>
+                <div class="contenido">
+                    <p>El uso de la aplicación está protegido por contraseña.</p>
+                    <label>Contraseña: <input id="password" type="password"></label>
+
+                    <p><button id="borrar">Borrar</button></p>
+                </div>
+
+            </details>
+            {{end}}
+
+
+            <details>
+                <summary>Subir archivo</summary>
+                <div class="contenido">
+                    <form action="/subir" method="post" enctype="multipart/form-data">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea type="text" id="descripcion" name="descripcion" required></textarea>
+
+                        <br>
+
+                        <label for="archivo">Seleccionar archivo:</label>
+                        <input type="file" id="archivo" name="archivo" required>
+
+                        <br>
+                        <input type="password" name="password" class="oculto">
+
+                        <button type="submit">Subir archivo</button>
+                    </form>
+                </div>
+            </details>
+            <details>
+                <summary>Buscar archivo</summary>
+                <div class="contenido">
+                    <form action="/buscar" method="get">
+                        <label for="busqueda">Buscar en la descripcion:</label>
+                        <input type="text" id="busqueda" name="busqueda" required>
+                        <input type="password" name="password" class="oculto">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+
+            </details>
+
+    </main>
+
+    <script>
+
+        function disparadorPassword() {
+            const valorPassword = document.querySelector("#password").value
+
+            const $passwords = document.querySelectorAll('input[name="password"]')
+            for (const $password of $passwords) {
+                $password.value = valorPassword
+            }
+            // Guardar en localStorage
+            localStorage.setItem("password", valorPassword)
+
+        }
+
+        const $password = document.querySelector("#password")
+        if ($password != null) {
+            $password.addEventListener("change", disparadorPassword)
+        }
+
+        const passwordPrevio = localStorage.getItem("password")
+        if (passwordPrevio != null && $password != null) {
+            $password.value = passwordPrevio
+            disparadorPassword()
+        }
+
+        const $passwordBorrar = document.querySelector("#borrar")
+        if ($passwordBorrar != null) {
+            $password.value = ""
+            disparadorPassword()
+        }
+
+    </script>
+</body>
+
+</html>
